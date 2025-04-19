@@ -1,0 +1,9 @@
+{% extends 'todo/base.html' %}
+{% block content %}
+<h2>{% if form.instance.pk %}Edit Task{% else %}New Task{% endif %}</h2>
+<form method="post" class="form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Save</button>
+</form>
+{% endblock %}

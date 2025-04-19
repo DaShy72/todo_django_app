@@ -1,0 +1,164 @@
+:root {
+    --bg-color: #f7f7f7;
+    --text-color: #333;
+    --container-bg: #fff;
+    --btn-bg: #6495ed;
+    --btn-danger-bg: #dc143c;
+    --header-bg: #fff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --container-bg: #1e1e1e;
+    --btn-bg: #2980b9;
+    --btn-danger-bg: #c0392b;
+    --header-bg: #1e1e1e;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: var(--container-bg);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-title {
+    flex: 1 1 auto;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.task-status {
+    margin-right: 10px;
+}
+
+.task-actions .btn {
+    margin: 2px;
+}
+
+.btn {
+    background-color: var(--btn-bg);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+
+.btn-danger {
+    background-color: var(--btn-danger-bg);
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.form {
+    max-width: 100%;
+}
+
+.form input, .form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #000;
+}
+
+[data-theme="dark"] .form input,
+[data-theme="dark"] .form textarea {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+@media screen and (max-width: 600px) {
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .task-actions {
+        margin-top: 10px;
+    }
+}
+
+/* Тема переключатель */
+.theme-toggle {
+    margin-left: auto;
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 60px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #333;
+}
+
+.start-btn {
+    margin-top: auto;
+    margin-bottom: 40px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.start-btn:hover {
+    background-color: #2980b9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

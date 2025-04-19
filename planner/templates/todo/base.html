@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+
+        document.getElementById('theme-toggle').addEventListener('click', function () {
+          const current = document.documentElement.getAttribute('data-theme');
+          const next = current === 'light' ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('theme', next);
+        });
+      });
+    </script>
+</head>
+<body>
+    <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>>
+    <div class="container">
+        <header>
+            <h1>ToDo App</h1>
+            {% if user.is_authenticated %}
+                <p>Welcome, {{ user.username }}</p>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
+            {% else %}
+                <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+            {% endif %}
+
+        </header>
+        <hr>
+        {% block content %}{% endblock %}
+    </div>
+
+
+</body>
+</html>
